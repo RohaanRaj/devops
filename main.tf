@@ -10,7 +10,10 @@ provider "aws" {
   region = "us-east-1"
 }
 
-# Create a VPC
-resource "aws_vpc" "example" {
-  cidr_block = "10.0.0.0/16"
-}
+resource "aws_instance" "example" {
+  ami           = "ami-00a929b66ed6e0de6" # Replace with your desired AMI
+  instance_type = "t2.micro"
+
+  tags = {
+    Name = "example-instance"
+  }
